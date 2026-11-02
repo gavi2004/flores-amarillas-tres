@@ -4,19 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/scroll.css" />
     <link rel="icon" href="img/flowers.png" type="image/x-icon" />
     <title>Flower</title>
   </head>
   <body class="container">
     <audio src="sound/ChristianBasso&HaienQiu-Flowers.mp3" autoplay></audio>
+    <div class="scene">
     <div id="lyrics">
      
     </div>
-    <h1 class="titulo">Estas flores amarillas son un reflejo de la alegría que traes a mi vida. <br> <br>
-      Gracias por iluminar mis días con tu presencia.</h1>
   
     <div class="night"></div>
+    <div class="camera">
     <div class="flowers">
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
@@ -326,6 +329,23 @@
         </div>
       </div>
     </div>
+    </div>
+    </div>
+
+    <div class="progress"><span></span></div>
+    <div class="hint">desliza ↓</div>
+
+    <main class="chapters" aria-live="polite">
+      <h2 class="kt" data-chapter="0">Hola</h2>
+      <h2 class="kt" data-chapter="1">Estas flores amarillas son un reflejo de la alegría que traes a mi vida.</h2>
+      <h2 class="kt" data-chapter="2">Gracias por iluminar mis días con tu presencia.</h2>
+      <h2 class="kt kt--big" data-chapter="3">Eres mi flor favorita 🌻</h2>
+    </main>
+    <div class="scroll-space"></div>
+
+    <script src="js/vendor/gsap.min.js"></script>
+    <script src="js/vendor/ScrollTrigger.min.js"></script>
+    <script src="js/scrollworld.js"></script>
     <script src="anim.js"></script>
     <script src="main.js"></script>
   </body>

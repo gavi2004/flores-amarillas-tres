@@ -95,3 +95,9 @@ body{
         font-size: 1rem;
     }
 }
+/* ===== Tipografía cinética del landing ===== */
+.greetings > span, .kinetic .c { display: inline-block; will-change: transform; }
+.kinetic .c { white-space: pre; }
+.description { letter-spacing: .08em; }
+.botones a { display: inline-block; will-change: transform; }
+.button a:hover { filter: brightness(1.2); }

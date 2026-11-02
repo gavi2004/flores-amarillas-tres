@@ -1,0 +1,88 @@
+/* ===== Scrollworld: la escena queda fija y el scroll dirige la cámara ===== */
+html { background: #000; }
+body.container, body {
+  display: block;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: none;
+  background: #000;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  background: #000;
+}
+.camera {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transform-origin: 50% 85%;
+  will-change: transform;
+}
+.night { will-change: transform, filter; }
+
+.scroll-space { height: 700vh; }
+
+/* ===== Tipografía cinética ===== */
+.chapters {
+  position: fixed;
+  inset: 0 0 38% 0;
+  display: grid;
+  place-items: center;
+  padding: 0 6vw;
+  pointer-events: none;
+  z-index: 20;
+}
+.kt {
+  grid-area: 1 / 1;
+  max-width: 18ch;
+  margin: 0;
+  font-family: "Poppins", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.6rem, 5.2vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffe94d;
+  text-shadow: 0 0 24px rgba(255, 220, 0, 0.55), 0 2px 0 rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+}
+.kt--big { font-size: clamp(2rem, 7.5vw, 6rem); max-width: 14ch; }
+.kt .w { display: inline-block; white-space: nowrap; }
+.kt .c { display: inline-block; will-change: transform, opacity; }
+
+.progress {
+  position: fixed; left: 0; top: 0; right: 0; height: 3px; z-index: 30;
+  background: rgba(255, 255, 255, 0.08);
+}
+.progress span {
+  display: block; height: 100%; width: 100%;
+  background: linear-gradient(90deg, #ffe94d, #ff9d00);
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+.hint {
+  position: fixed; left: 50%; bottom: 3vh; z-index: 30;
+  transform: translateX(-50%);
+  font: 600 0.8rem "Poppins", sans-serif; letter-spacing: 0.4em;
+  text-transform: uppercase; color: #fff; opacity: 0.8;
+  animation: hint-bob 1.6s ease-in-out infinite;
+}
+@keyframes hint-bob { 50% { transform: translate(-50%, 6px); } }
+
+@media (max-width: 600px) {
+  .chapters { inset: 0 0 45% 0; }
+  .kt { letter-spacing: 0.02em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hint { animation: none; }
+}
